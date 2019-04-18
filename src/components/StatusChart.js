@@ -2,23 +2,28 @@ import React from 'react';
 import Highcharts from 'highcharts';
 import { Segment } from 'semantic-ui-react';
 
-const UPDATE_STEP = 100;
+class StatusChart extends React.Component {
 
-class ErrorChart extends React.Component {
-
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.chart = null;
-        this.id = 'errorChart';
+        this.id = 'chart' + Math.random();
+        this.updateStep = props.updateStep || 10;
     }
 
     componentDidUpdate(prevProps) {
-        if (prevProps.data !== this.props.data && (this.props.data.length % UPDATE_STEP === 0)) {
-            this.chart.series[0].update({ data: this.props.data });
+        const { trainData, valData } = this.props;
+        if (prevProps.trainData !== trainData && (trainData.length % this.updateStep === 0)) {
+            this.chart.series[0].update({ data: trainData });
+        }
+
+        if (prevProps.valData !== valData) {
+            this.chart.series[1].update({ data: valData });
         }
     }
 
     componentDidMount() {
+        const { trainData, valData, yTitle, xTitle } = this.props
         const options = {
             chart: {
                 type: 'line',
@@ -33,30 +38,34 @@ class ErrorChart extends React.Component {
             xAxis: {
                 enabled: true,
                 title: {
-                    text: 'iteration'
+                    text: xTitle || 'batch'
                 }
             },
             yAxis: {
                 title: {
-                    text: 'error'
+                    text: yTitle
                 },
                 minPadding: 0,
                 maxPadding: 0
             },
             legend: {
-                enabled: false
+                enabled: valData ? true : false,
             },
             exporting: {
                 enabled: false
             },
             plotOptions: {
                 series: {
-                    lineWidth: 1
+                    lineWidth: 1,
+                    marker: {
+                        enabled: false
+                    }
                 }
             },
             series: [
-                { id: 'data', name: 'Data', data: this.props.data }
-            ]
+                { id: 'train', name: 'Train', data: trainData },
+                (valData ? { id: 'val', name: 'Validation', data: valData } : false)
+            ].filter(Boolean)
         };
         this.chart = new Highcharts.chart(this.id, options);
     }
@@ -68,7 +77,7 @@ class ErrorChart extends React.Component {
     render() {
         return (
             <Segment.Group>
-                <Segment><b>Error data</b></Segment>
+                <Segment><b>{this.props.title}</b></Segment>
                 <Segment style={{ padding: 0 }}>
                     <div id={this.id} />
                 </Segment>
@@ -78,4 +87,4 @@ class ErrorChart extends React.Component {
 
 }
 
-export default ErrorChart;
+export default StatusChart;

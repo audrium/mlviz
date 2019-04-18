@@ -1,11 +1,11 @@
 import React from 'react';
 import { Container, Grid, Segment } from 'semantic-ui-react';
 import DataChart from './DataChart';
-import ErrorChart from './ErrorChart';
+import StatusChart from '../components/StatusChart';
 import Controls from './Controls';
-import getData from '../dataset';
-import { gradientDescent } from '../gradientDescent';
-import { getLinearRegression } from '../regression';
+import getData from './dataset';
+import { gradient } from './gradient';
+import { getLinearRegression } from './regression';
 
 const DATASETS = [
     { key: 'setosa', value: 'setosa', text: 'Iris: Setosa sepals' },
@@ -18,7 +18,7 @@ const LEARNING_RATE = 0.0001;
 const GRADIENT_STEP_TIME = 100;
 const GRADIENT_STEP = 10;
 
-class LinearRegression extends React.Component {
+class GradientDescent extends React.Component {
 
     constructor() {
         super();
@@ -65,7 +65,7 @@ class LinearRegression extends React.Component {
         this.interval = setInterval(() => {
             const { data, k, b, errorData, logs, epoch } = this.state;
             const epochEnd = epoch + GRADIENT_STEP;
-            const g = gradientDescent(data, k, b, epoch, epochEnd, LEARNING_RATE);
+            const g = gradient(data, k, b, epoch, epochEnd, LEARNING_RATE);
             this.setState({
                 regressionData: getLinearRegression(data, g.k, g.b),
                 logs: g.logs.length > 0 ?
@@ -127,7 +127,13 @@ class LinearRegression extends React.Component {
                         }
                         {errorData.length > 0 &&
                             <Grid.Column>
-                                <ErrorChart data={errorData} />
+                                <StatusChart
+                                    title="Error"
+                                    trainData={errorData}
+                                    yTitle="error"
+                                    xTitle="epoch"
+                                    updateStep={100}
+                                />
                             </Grid.Column>
                         }
                     </Grid.Row>
@@ -137,4 +143,4 @@ class LinearRegression extends React.Component {
     }
 }
 
-export default LinearRegression;
+export default GradientDescent;

@@ -22,7 +22,7 @@ const gradientStep = (data, k, b, learningRate) => {
     return { k, b };
 }
 
-export const gradientDescent = (data, initK = 0, initB = 0, epochStart, epochEnd, learningRate) => {
+export const gradient = (data, initK = 0, initB = 0, epochStart, epochEnd, learningRate) => {
     let error = 0;
     let k = initK;
     let b = initB;

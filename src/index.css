@@ -18,3 +18,10 @@ html, body {
 .labels {
   margin-bottom: 0px !important;
 }
+
+.item-header {
+  font-size: 14px !important;
+  margin-top: 5px !important;
+  margin-right: 5px !important;
+  vertical-align: top;
+}
