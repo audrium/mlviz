@@ -7,9 +7,8 @@ import Mnist from './mnist/Mnist';
 class App extends Component {
 
   render() {
-    console.log('ll')
     return (
-      <Router>
+      <Router basename="/mlviz">
         <div>
           <Header />
           <Route path="/" exact component={GradientDescent} />
