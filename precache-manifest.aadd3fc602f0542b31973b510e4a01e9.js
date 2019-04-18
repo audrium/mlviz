@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "a36c7125effbed11d071",
+    "revision": "0bdfdb954b19d92654b4",
     "url": "/mlviz/static/css/main.f6a0e272.chunk.css"
   },
   {
-    "revision": "a36c7125effbed11d071",
-    "url": "/mlviz/static/js/main.a36c7125.chunk.js"
+    "revision": "0bdfdb954b19d92654b4",
+    "url": "/mlviz/static/js/main.0bdfdb95.chunk.js"
   },
   {
     "revision": "988a58aa7c427fec0a1c",
@@ -20,7 +20,7 @@ self.__precacheManifest = [
     "url": "/mlviz/static/media/dataset.649191b6.png"
   },
   {
-    "revision": "f1cb0827a242110b83f8b5600612805d",
+    "revision": "1d967cdd58ed113f98269755b58ee625",
     "url": "/mlviz/index.html"
   }
 ];
