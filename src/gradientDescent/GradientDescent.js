@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Grid, Segment } from 'semantic-ui-react';
+import { Container, Grid, Segment, Accordion, Icon } from 'semantic-ui-react';
 import DataChart from './DataChart';
 import StatusChart from '../components/StatusChart';
 import Controls from './Controls';
@@ -32,7 +32,8 @@ class GradientDescent extends React.Component {
             training: false,
             epoch: 0,
             k: 0,
-            b: 0
+            b: 0,
+            activeIndex: 0
         }
     }
 
@@ -84,10 +85,31 @@ class GradientDescent extends React.Component {
         clearInterval(this.interval);
     }
 
+    onAccordionClick = (e, titleProps) => {
+        const { index } = titleProps;
+        const { activeIndex } = this.state;
+        this.setState({ activeIndex: activeIndex === index ? -1 : index })
+    }
+
     render() {
-        const { data, regressionData, errorData, logs, training } = this.state;
+        const { data, regressionData, errorData, logs, training, activeIndex } = this.state;
         return (
             <Container style={{ padding: '5em 0em' }}>
+                <div style={{ paddingBottom: 20 }}>
+                    <Accordion fluid styled>
+                        <Accordion.Title active={activeIndex === 0} index={0} onClick={this.onAccordionClick}>
+                            <Icon name='dropdown' />
+                            Gradient Descent
+                        </Accordion.Title>
+                        <Accordion.Content active={activeIndex === 0}>
+                            <p>
+                                This example shows how gradient descent algorithm can be used to solve a linear regression problem.
+                                It works by iteratively estimating and tuning k and b parameters of regression line (when y = kx + b)
+                                and trying minimize the cost function (MSE).
+                            </p>
+                        </Accordion.Content>
+                    </Accordion>
+                </div>
                 <Controls
                     datasets={DATASETS}
                     dataset={this.state.dataset}

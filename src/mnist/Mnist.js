@@ -57,9 +57,7 @@ class Mnist extends React.Component {
                 onBatchEnd: async (batch, logs) => {
                     currentBatch++;
                     this.setState({
-                        status: `Training... (` +
-                            `${(currentBatch / totalBatches * 100).toFixed(1)}%` +
-                            ` complete). To stop training, refresh or close page.`,
+                        status: `Training... (${(currentBatch / totalBatches * 100).toFixed(1)}% complete)`,
                         errorData: this.state.errorData.concat(logs.loss),
                         accData: this.state.accData.concat(logs.acc)
                     });

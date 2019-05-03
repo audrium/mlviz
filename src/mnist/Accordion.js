@@ -19,7 +19,7 @@ export default class AccordionInfo extends Component {
                 <Accordion fluid styled>
                     <Accordion.Title active={activeIndex === 0} index={0} onClick={this.onAccordionClick}>
                         <Icon name='dropdown' />
-                        Info
+                        About
                 </Accordion.Title>
                     <Accordion.Content active={activeIndex === 0}>
                         <p>

@@ -10,6 +10,7 @@ export default () => (
       </Menu.Item>
       <Menu.Item><Link to="/gradient_descent">Gradient Descent</Link></Menu.Item>
       <Menu.Item><Link to="/mnist">MNIST</Link></Menu.Item>
+      <Menu.Item><Link to="/object_detection">Object Detection</Link></Menu.Item>
     </Container>
   </Menu>
 );
