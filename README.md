@@ -2,7 +2,7 @@
 
 App holds machine learning experiments written in javascript:
 
-- Gradient Descent example show how this algorithm can be used to solve a linear regression problem. It works by iteratively estimating and tuning k and b parameters of regression line (when y = kx + b) and trying minimize the cost function (MSE).
+- Gradient Descent example show how this algorithm can be used to solve a linear regression problem. It works by iteratively estimating and tuning k and b parameters of regression line (when y = kx + b) and trying to minimize the cost function (MSE).
 
 - MNIST mini project trains a simple neural network to recognize handwritten digits from the famous dataset.
 
