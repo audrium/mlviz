@@ -905,7 +905,7 @@
     "@svgr/plugin-svgo" "^4.0.3"
     loader-utils "^1.1.0"
 
-"@tensorflow-models/coco-ssd@^1.0.1":
+"@tensorflow-models/coco-ssd@1.0.1":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@tensorflow-models/coco-ssd/-/coco-ssd-1.0.1.tgz#7b038f08d7e23528c52491e4e80b946bcf30bae8"
 
@@ -4113,9 +4113,9 @@ hex-color-regex@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/hex-color-regex/-/hex-color-regex-1.1.0.tgz#4c06fccb4602fe2602b3c93df82d7e7dbf1a8a8e"
 
-highcharts@7.0.3:
-  version "7.0.3"
-  resolved "https://registry.yarnpkg.com/highcharts/-/highcharts-7.0.3.tgz#0c8edb578bae28774b9f0d49cf1ae4887b126305"
+highcharts@9.0.0:
+  version "9.0.0"
+  resolved "https://registry.yarnpkg.com/highcharts/-/highcharts-9.0.0.tgz#2e5d382481f71c50ac7f086e7bdead394fab71d4"
 
 history@^4.9.0:
   version "4.9.0"
@@ -7431,7 +7431,7 @@ react-scripts@2.1.5:
   optionalDependencies:
     fsevents "1.2.4"
 
-react-webcam@^1.1.1:
+react-webcam@1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/react-webcam/-/react-webcam-1.1.1.tgz#03c69c4d61e36b817063504fc09541b4fff52d2e"
   dependencies:
